@@ -20,15 +20,13 @@
 		draft=true, 				% draft=true useful during writing, set to false for final document %BUG will stop hyperref from working (bookmarks)
                 DIV=13,					%number columns for page layout calculation. The larger, the smaller margins will be. Standard for 12pt is 12
                 BCOR=10mm,				%reserved inner margin for binding
+                headinclude,				%include header into text area
 ]{scrreprt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %% Line Spacing and Margins %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[onehalfspacing]{setspace}
-%\usepackage{geometry}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 %% Scripture and Language %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[english]{babel}  %LANGUAGE
@@ -60,11 +58,10 @@
 %\ihead{\large{\textsc{\thesistype}}\ - \small{\autor} \\ \textit{\headmark}}
 \ihead{\textit{\headmark}}
 \chead{}
-\ohead{\pagemark}
+\ohead{}
 %\ohead{\includegraphics[scale=0.15]{\logo}}
-\setlength{\headheight}{30mm} % height of header
 % broaden header beyond the text
-\setheadwidth[10pt]{textwithmarginpar}
+\setheadwidth{textwithmarginpar}
 
 %% Footer
 %\ifoot{\small{\thesistype\ \autor}}
