@@ -22,6 +22,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+%% Line Spacing and Margins %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[onehalfspacing]{setspace}
+\usepackage{geometry}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 %% Scripture and Language %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[english]{babel}  %LANGUAGE
 %\usepackage[ngerman]{babel} %LANGUAGE
@@ -29,6 +35,44 @@
 \usepackage[ansinew]{inputenc}
 \usepackage{textcomp} % Euro-Sign etc.
 \usepackage{lmodern}
+
+%% Page Style %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[perpage]{footmisc}
+% Customize headers and footers
+\usepackage[
+		automark,						% Create Chapter Information in Header automatically
+		headsepline,					% Dividing line under header
+%		footsepline,					% Dividing line over footer
+		ilines							% Align dividing line left-aligned
+]{scrpage2}
+
+\setlength{\topskip}{\ht\strutbox} % fixes warning of geometry
+\geometry{paper=a4paper,left=30mm,right=18mm,top=15mm,bottom=55mm}
+
+\pagestyle{scrheadings} % headers and footers
+\renewcommand*{\chapterpagestyle}{scrheadings} % header and footer on the first page of chapter
+\renewcommand{\headfont}{\normalfont} % font of the header
+
+%TODO: fancyhdr
+
+%% Header
+%\ihead{\large{\textsc{\thesistitle}}\\ \small{\thesistitle} \\[2ex] \textit{\headmark}}
+%\ihead{\large{\textsc{\thesistype}}\ - \small{\autor} \\ \textit{\headmark}}
+\ihead{\textit{\headmark}}
+\chead{}
+\ohead{\pagemark}
+%\ohead{\includegraphics[scale=0.15]{\logo}}
+\setlength{\headheight}{30mm} % height of header
+% broaden header beyond the text
+\setheadwidth[10pt]{textwithmarginpar}
+\setheadsepline[text]{0.4pt} % line beneath header
+
+%% Footer
+%\ifoot{\small{\thesistype\ \autor}}
+\ifoot{}
+\cfoot{}
+\ofoot{\pagemark}
+
 
 %% first tests towards the usage of xetex
 %\usepackage[T1]{fontenc}
@@ -103,12 +147,6 @@
 	commandchars=\|\(\), % escape character and argument delimiters for commands within the verbatim
 	commentchar=*        % comment character
 }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%% Line Spacing and Margins %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{setspace}
-\usepackage{geometry}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -236,14 +274,6 @@
 \usepackage{scrhack}					% To prevent a listing Warning
 \usepackage{listings}					% Program Code
 %\usepackage{chngcntr}					% Continuous renumber the footnotes
-\usepackage[perpage]{footmisc}
-% Customize headers and footers
-\usepackage[
-		automark,						% Create Chapter Information in Header automatically
-		headsepline,					% Dividing line under header
-%		footsepline,					% Dividing line over footer
-		ilines							% Align dividing line left-aligned
-]{scrpage2}
 
 \usepackage{caption}
 	\captionsetup{justification=raggedright,format=hang,margin=30pt,font=small,labelfont=bf,labelsep=endash}
@@ -256,39 +286,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \makenomenclature
-
-
-%% Page Style %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Line Spacing 1,5
-\onehalfspacing
-%\linespread{1.5}
-
-\setlength{\topskip}{\ht\strutbox} % fixes warning of geometry
-\geometry{paper=a4paper,left=30mm,right=18mm,top=15mm,bottom=55mm}
-
-\pagestyle{scrheadings} % headers and footers
-\renewcommand*{\chapterpagestyle}{scrheadings} % header and footer on the first page of chapter
-\renewcommand{\headfont}{\normalfont} % font of the header
-
-%TODO: fancyhdr
-
-%% Header
-%\ihead{\large{\textsc{\thesistitle}}\\ \small{\thesistitle} \\[2ex] \textit{\headmark}}
-%\ihead{\large{\textsc{\thesistype}}\ - \small{\autor} \\ \textit{\headmark}}
-\ihead{\textit{\headmark}}
-\chead{}
-\ohead{\pagemark}
-%\ohead{\includegraphics[scale=0.15]{\logo}}
-\setlength{\headheight}{30mm} % height of header
-% broaden header beyond the text
-\setheadwidth[10pt]{textwithmarginpar}
-\setheadsepline[text]{0.4pt} % line beneath header
-
-%% Footer
-%\ifoot{\small{\thesistype\ \autor}}
-\ifoot{}
-\cfoot{}
-\ofoot{\pagemark}
 
 
 %% Miscellaneous %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
