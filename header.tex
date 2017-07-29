@@ -18,13 +18,15 @@
 		bibliography=totoc,			% list bibliography in the table of contents
 		captions=tableheading,		% output labeling tables below
 		draft=true, 				% draft=true useful during writing, set to false for final document %BUG will stop hyperref from working (bookmarks)
+                DIV=13,					%number columns for page layout calculation. The larger, the smaller margins will be. Standard for 12pt is 12
+                BCOR=10mm,				%reserved inner margin for binding
 ]{scrreprt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %% Line Spacing and Margins %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[onehalfspacing]{setspace}
-\usepackage{geometry}
+%\usepackage{geometry}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -46,8 +48,6 @@
 		ilines							% Align dividing line left-aligned
 ]{scrpage2}
 
-\setlength{\topskip}{\ht\strutbox} % fixes warning of geometry
-\geometry{paper=a4paper,left=30mm,right=18mm,top=15mm,bottom=55mm}
 
 \pagestyle{scrheadings} % headers and footers
 \renewcommand*{\chapterpagestyle}{scrheadings} % header and footer on the first page of chapter
@@ -65,7 +65,6 @@
 \setlength{\headheight}{30mm} % height of header
 % broaden header beyond the text
 \setheadwidth[10pt]{textwithmarginpar}
-\setheadsepline[text]{0.4pt} % line beneath header
 
 %% Footer
 %\ifoot{\small{\thesistype\ \autor}}
@@ -73,6 +72,7 @@
 \cfoot{}
 \ofoot{\pagemark}
 
+\recalctypearea %force recalculation of page layout, after setting headers, footers and line spread
 
 %% first tests towards the usage of xetex
 %\usepackage[T1]{fontenc}
